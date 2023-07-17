@@ -7,10 +7,19 @@ import { SubmitService } from '../submit.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements AfterViewInit {
+export class FormComponent {
   @ViewChild('f') form: NgForm | undefined
 
-  constructor(private submitService: SubmitService){}
+  constructor(private submitService: SubmitService){
+    //this.laptop = new Laptop();
+    
+  }
+  
+  submit(form: NgForm) :void{
+    
+    console.log('message');
+  }
+  
 
   ngAfterViewInit(){
     console.log(this.form);
@@ -22,13 +31,22 @@ export class FormComponent implements AfterViewInit {
     'Mac OS'
   ];
 
-  onSubmit(){
-    const content = this.form?.value;
-    //TODO send model to API
-    if(content.invalid){
-      return;
-    }
+  // onSubmit(f: NgForm): void{
+  //   console.log('submit message');
+  //   //const content = this.form?.value;
+  //   //TODO send model to API
+  //   // if(content.invalid){
+  //   //   return;
+  //   // }
 
-    content.submitService.submit();
-  }
+  //   // content.submitService.submit();
+    
+  // }
+
+  // export class laptop {
+  //   processor: string;
+  //   ram: string;
+  //   hardDisk: number;
+  //   op: string;
+  // }
 }

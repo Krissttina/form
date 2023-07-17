@@ -22,11 +22,11 @@
               #processorInput="ngModel" required ngModel><!--ngModel makes the form track values-->
           </div>
           <!-- [(ngModel)]="laptop.processor"-->
-          <ng-template *ngIf="processorInput.touched">
-            <p class="error" *ngIf="processorInput.errors?.['required']">RAM is
+          <ng-container *ngIf="processorInput.touched">
+            <p class="error" *ngIf="processorInput.errors?.['required']">Processor is
               required!</p>
 
-          </ng-template>
+          </ng-container>
 
           <div class="form-group">
             <label for="ram">RAM</label>
@@ -65,13 +65,13 @@
             </select>
           </div>
 
-          <ng-container *ngIf="osInput.touched">
-            <p class="error" *ngIf="osInput.errors?.['required']">OS is
+          <ng-container *ngIf="processorInput.touched">
+            <p class="error" *ngIf="processorInput.errors?.['required']">OS is
               required!</p>
 
           </ng-container>
 
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-success" [disabled]="form.invalid">Submit</button>
 
         </fieldset>
       </form>

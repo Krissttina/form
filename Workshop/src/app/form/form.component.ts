@@ -16,8 +16,9 @@ export class FormComponent {
   }
   
   submit(form: NgForm) :void{
-    
+    console.log(form);
     console.log('message');
+    form.reset();
   }
   
 

@@ -10,36 +10,65 @@
   <body>
     <div class="container">
       <h1>Laptop Form</h1>
-      <form #f="ngForm">
+      <form (onSubmit)="onSubmit()" #f="ngForm">
 
         <div class="form-group">
           <label for="processor">Proccessor</label>
           <input type="text" class="form-control" id="processor"
-            name="processor" required ngModel>
+            name="processor" 
+            #processorInput="ngModel" required ngModel>
         </div>
+
+        <ng-container *ngIf="processorInput.touched || processorInput.invalid">
+          <p class="error" *ngIf="processorInput.errors?.['required']">Processor is required!</p>
+            
+        </ng-container>
+
 
         <div class="form-group">
           <label for="ram">RAM</label>
           <input type="text" class="form-control" id="ram"
-            required>
+          name="ram" 
+          #ramInput="ngModel" required ngModel>
         </div>
+
+        <ng-container *ngIf="ramInput.touched">
+          <p class="error" *ngIf="ramInput.errors?.['required']">RAM is required!</p>
+            
+        </ng-container>
+
 
         <div class="form-group">
           <label for="hardDisk">Hard Disk (GB)</label>
-          <input type="number" class="form-control" id="hardDisk">
+          <input type="number" class="form-control" id="hardDisk"
+          name="hardDisk" 
+          #hardDiskInput="ngModel" required ngModel>
         </div>
+
+        <ng-container *ngIf="hardDiskInput.touched">
+          <p class="error" *ngIf="hardDiskInput.errors?.['required']">Hard Disk is required!</p>
+            
+        </ng-container>
+
 
         <div class="form-group">
           <label for="os">Operating System</label>
           <select class="form-control"
             id="os"
-            required>
+            name="os" 
+          #osInput="ngModel" required ngModel>
             <option *ngFor="let os of operatingSystems"
             [value]="os">{{os}}</option>
           </select>
         </div>
 
-        <button type="submit" class="btn btn-success">Submit</button>
+        <ng-container *ngIf="osInput.touched">
+          <p class="error" *ngIf="osInput.errors?.['required']">OS is required!</p>
+            
+        </ng-container>
+
+
+        <button type="submit" class="btn btn-success"  [disabled]="f.invalid">Submit</button>
 
       </form>
     </div>

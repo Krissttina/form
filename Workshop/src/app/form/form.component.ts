@@ -20,7 +20,7 @@ export class FormComponent {
     console.log('message');
     form.reset();
   }
-  
+  //TODO VALIDATION
 
   ngAfterViewInit(){
     console.log(this.form);

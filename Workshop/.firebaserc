@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "submitform-1a2f7": {
+      "hosting": {
+        "Workshop": [
+          "submitform-1a2f7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "submitform-1a2f7"
+  }
+}
